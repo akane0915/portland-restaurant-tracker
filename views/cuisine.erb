@@ -1,0 +1,32 @@
+<h1><%= @cuisine.type %></h1>
+
+<% if @cuisine.restaurants.any? %>
+
+<p>Click on a restaurant to edit.</p>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Restaurant Name</th>
+        <th>Price Range (1-5)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cuisine.restaurants.each do |restaurant| %>
+
+        <tr>
+          <td><a href="/restaurants/<%=restaurant.id%>/edit"><%=restaurant.name%></a></td>
+          <td><%=restaurant.price%></td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+<p>No restaurants have been added to this cuisine yet!</p>
+<% end %>
+
+<a class = "btn btn-default" href="/cuisines/<%= @cuisine.id %>/edit">Edit <%= @cuisine.type %> cuisine category</a>
+<hr>
+<a class = "btn btn-default" href="/">Return Home To Add Restaurants</a>

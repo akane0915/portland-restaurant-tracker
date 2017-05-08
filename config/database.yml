@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: restaurants_to_try_development
+
+test:
+  adapter: postgresql
+  database: restaurants_to_try_test

@@ -1,12 +1,91 @@
-<%= # sample index html
-# <form action="/phrase_parser">
-#   <div class="form-group">
-#      <label for="title">gimme phrase or word!</label>
-#      <input name="phrase1" class="form-control" type="text">
-#      <label for="title">gimme another!</label>
-#      <input name="phrase2" class="form-control" type="text">
-#   </div>
-#   <hr>
-#   <button action="/" class="btn btn-success">what am i?</button>
-# </form>
-%>
+<h5>Use this handy dandy application to keep track of restaurants in Portland that you would like to try!</h5>
+
+<!-- List of all Cuisine Types -->
+<h3>Click on a Cuisine to view its restaurants</h3>
+
+<% if @cuisines.any? %>
+  <h3>Click on a cuisine to see its restaurants:</h3>
+  <ul>
+    <% @cuisines.each do |cuisine| %>
+      <li><a href="/cuisines/<%= cuisine.id%>"><%= cuisine.type%></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No cuisines have been created yet!</p>
+<% end %>
+<hr>
+
+<!-- Create a cuisine -->
+<h3>Create a cusine category</h3>
+
+<form action="/cuisines" method="post">
+  <div class="form-group">
+     <label for="type">Enter the cuisine type:</label>
+     <input name="type" class="form-control" type="text">
+  </div>
+  <br>
+  <button class="btn btn-default">Save Cuisine</button>
+</form>
+<hr>
+
+<!-- List of all Location neighborhoods -->
+<% if @locations.any? %>
+  <h3>Click on a location to see its restaurants:</h3>
+  <ul>
+    <% @locations.each do |location| %>
+      <li><a href="/locations/<%= location.id%>"><%= location.neighborhood%></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No locations have been created yet!</p>
+<% end %>
+<hr>
+
+<!-- Create a location -->
+<h3>Create a location</h3>
+
+<form action="/locations" method="post">
+  <div class="form-group">
+     <label for="type">Enter a Portland neighborhood:</label>
+     <input name="type" class="form-control" type="text">
+  </div>
+  <br>
+  <button class="btn btn-default">Save Location</button>
+</form>
+<hr>
+
+<!-- Add Restaurants to a Cuisine type -->
+<h3>Add restaurants by cuisine type and location</h3>
+
+<form action="/restaurants" method="post">
+  <div class="form-group">
+    <label for="cuisine_id">Select the cuisine type:</label>
+    <select id='cuisine_id' name='cuisine_id' type='text'>
+      <% @cuisines.each() do |cuisine| %>
+        <option value="<%= cuisine.id()%>"> <%= cuisine.type %> </option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="location_id">Select the location:</label>
+    <select id='location_id' name='location_id' type='text'>
+      <% @locations.each() do |location| %>
+        <option value="<%= location.id()%>"> <%= location.neighborhood %> </option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="form-group">
+     <label for="name">Enter the restaurant name:</label>
+     <input name="name" class="form-control" type="text">
+  </div>
+
+  <div class="form-group">
+     <label for="price">Enter the restaurant price range from 1-5 (1 being the lowest):</label>
+     <input name="price" class="form-control" type="number">
+  </div>
+
+  <br>
+  <button class="btn btn-default">Save Restaurant</button>
+</form>

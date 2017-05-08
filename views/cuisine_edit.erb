@@ -1,0 +1,20 @@
+<h1>Update the <%=@cuisine.type%></h1>
+
+<form action="/cuisines/<%=@cuisine.id%>" method="post">
+
+  <input name="_method" type="hidden" value="patch">
+
+  <div class="form-group">
+     <label for="type">Rename the Cuisine:</label>
+     <input name="type" class="form-control" type="text">
+  </div>
+  <br>
+  <button class="btn btn-default">Update Cuisine</button>
+</form>
+<hr>
+
+<form action="/cuisines/<%=@cuisine.id%>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button class="btn btn-default">Delete This Cuisine</button>
+</form>
+<br>
