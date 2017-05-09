@@ -1,4 +1,4 @@
-<h1><%= @cuisine.type %></h1>
+<h1><%= @cuisine.cuisine_type %></h1>
 
 <% if @cuisine.restaurants.any? %>
 
@@ -27,6 +27,6 @@
 <p>No restaurants have been added to this cuisine yet!</p>
 <% end %>
 
-<a class = "btn btn-default" href="/cuisines/<%= @cuisine.id %>/edit">Edit <%= @cuisine.type %> cuisine category</a>
+<a class = "btn btn-default" href="/cuisines/<%= @cuisine.id %>/edit">Edit <%= @cuisine.cuisine_type %> cuisine category</a>
 <hr>
 <a class = "btn btn-default" href="/">Return Home To Add Restaurants</a>

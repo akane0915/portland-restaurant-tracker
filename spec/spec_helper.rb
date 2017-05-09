@@ -1,3 +1,5 @@
+ENV['RACK_ENV'] = 'test'
+
 require"sinatra/activerecord"
 require "restaurant"
 require "location"
