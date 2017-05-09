@@ -1,0 +1,27 @@
+<!-- List of all Cuisine Types -->
+<% if @cuisines.any? %>
+  <h3>Click on a cuisine to see its restaurants:</h3>
+  <ul>
+    <% @cuisines.each do |cuisine| %>
+      <li><a href="/cuisines/<%= cuisine.id%>"><%= cuisine.cuisine_type%></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No cuisines have been created yet!</p>
+<% end %>
+<hr>
+
+<!-- Create a cuisine -->
+<h3>Add a Cuisine</h3>
+
+<form action="/cuisines" method="post">
+  <div class="form-group">
+     <label for="cuisine_type">Enter the cuisine type:</label>
+     <input name="cuisine_type" class="form-control" type="text">
+  </div>
+  <br>
+  <button class="btn btn-default">Save Cuisine</button>
+</form>
+<hr>
+
+<a class="btn btn-default" href="/">Return Home</a>

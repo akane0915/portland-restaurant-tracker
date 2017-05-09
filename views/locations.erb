@@ -1,0 +1,27 @@
+<!-- List of all Location neighborhoods -->
+<% if @locations.any? %>
+  <h3>Click on a location to see its restaurants:</h3>
+  <ul>
+    <% @locations.each do |location| %>
+      <li><a href="/locations/<%= location.id%>"><%= location.neighborhood%></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No locations have been created yet!</p>
+<% end %>
+<hr>
+
+<!-- Create a location -->
+<h3>Add a Location</h3>
+
+<form action="/locations" method="post">
+  <div class="form-group">
+     <label for="neighborhood">Enter a Portland neighborhood:</label>
+     <input name="neighborhood" class="form-control" type="text">
+  </div>
+  <br>
+  <button class="btn btn-default">Save Location</button>
+</form>
+<hr>
+
+<a class="btn btn-default" href="/">Return Home</a>

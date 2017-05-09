@@ -1,11 +1,11 @@
-<h1><%= @cuisine.cuisine_type %></h1>
-<form action="/cuisines/<%=@cuisine.id%>" method="post">
+<h1><%= @location.neighborhood %></h1>
+<form action="/locations/<%=@location.id%>" method="post">
   <input name="_method" type="hidden" value="delete">
-  <button class="btn btn-default">Delete This Cuisine</button>
+  <button class="btn btn-default">Delete This Location</button>
 </form>
 <br>
 
-<% if @cuisine.restaurants.any? %>
+<% if @location.restaurants.any? %>
 
 <table class="table">
     <thead>
@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @cuisine.restaurants.each do |restaurant| %>
+      <% @location.restaurants.each do |restaurant| %>
 
         <tr>
           <td><%=restaurant.name%></td>
@@ -27,7 +27,7 @@
   </table>
 
 <% else %>
-<p>No restaurants have been added to this cuisine yet!</p>
+<p>No restaurants have been added to this location yet!</p>
 <% end %>
 
 <hr>
