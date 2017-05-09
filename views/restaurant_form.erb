@@ -6,7 +6,7 @@
     <label for="cuisine_id">Select the cuisine type:</label>
     <select id='cuisine_id' name='cuisine_id' type='text'>
       <% @cuisines.each() do |cuisine| %>
-        <option value="<%= cuisine.id()%>"> <%= cuisine.cuisine_type %> </option>
+        <option value="<%= cuisine.id%>"> <%= cuisine.cuisine_type %> </option>
       <% end %>
     </select>
   </div>
@@ -15,7 +15,7 @@
     <label for="location_id">Select the location:</label>
     <select id='location_id' name='location_id' type='text'>
       <% @locations.each() do |location| %>
-        <option value="<%= location.id()%>"> <%= location.neighborhood %> </option>
+        <option value="<%= location.id%>"> <%= location.neighborhood %> </option>
       <% end %>
     </select>
   </div>
@@ -34,3 +34,6 @@
   <br>
   <button class="btn btn-default">Save Restaurant</button>
 </form>
+
+<hr>
+<a class="btn btn-default" href="/">Return Home</a>

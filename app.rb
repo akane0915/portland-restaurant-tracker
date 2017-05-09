@@ -71,6 +71,7 @@ end
 
 get '/restaurants' do
   @restaurants = Restaurant.all
+    binding.pry
   erb :restaurants
 end
 

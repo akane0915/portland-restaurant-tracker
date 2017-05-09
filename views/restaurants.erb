@@ -6,6 +6,8 @@
         <tr>
           <th>Restaurant Name</th>
           <th>Price Range (1-5)</th>
+          <th>Cuisine Type</th>
+          <th>Location</th>
         </tr>
       </thead>
       <tbody>
@@ -14,6 +16,8 @@
           <tr>
             <td><%=restaurant.name%></td>
             <td><%=restaurant.price%></td>
+            <td><%=restaurant.cuisine.cuisine_type%></td>
+            <td><%=restaurant.location.neighborhood%></td>
           </tr>
 
         <% end %>
@@ -24,3 +28,5 @@
   <p>No restaurants have been created yet!</p>
 <% end %>
 <hr>
+
+<a class="btn btn-default" href="/">Return Home</a>

@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe(Location) do
   describe("#restaurants") do
     it("tells which restaurants are in it") do
