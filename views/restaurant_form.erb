@@ -1,0 +1,36 @@
+<!-- Add Restaurants -->
+<h3>Add restaurants by cuisine type and location</h3>
+
+<form action="/restaurants" method="post">
+  <div class="form-group">
+    <label for="cuisine_id">Select the cuisine type:</label>
+    <select id='cuisine_id' name='cuisine_id' type='text'>
+      <% @cuisines.each() do |cuisine| %>
+        <option value="<%= cuisine.id()%>"> <%= cuisine.cuisine_type %> </option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="location_id">Select the location:</label>
+    <select id='location_id' name='location_id' type='text'>
+      <% @locations.each() do |location| %>
+        <option value="<%= location.id()%>"> <%= location.neighborhood %> </option>
+      <% end %>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+     <label for="name">Enter the restaurant name:</label>
+     <input name="name" class="form-control" type="text">
+  </div>
+
+  <div class="form-group">
+     <label for="price">Enter the restaurant price range from 1-5 (1 being the lowest):</label>
+     <input name="price" class="form-control" type="number">
+  </div>
+
+  <br>
+  <button class="btn btn-default">Save Restaurant</button>
+</form>
