@@ -96,3 +96,9 @@ post '/restaurants' do
   new_restaurant = Restaurant.create({:name => name, :price => price, :cuisine_id => cuisine_id, :location_id => location_id})
   redirect '/restaurants'
 end
+
+get '/restaurant/:id' do
+  restaurant_id = params['id'].to_i
+  @restaurant = Restaurant.find(restaurant_id)
+  erb :restaurant
+end

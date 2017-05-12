@@ -1,3 +1,23 @@
+<!-- Restaurant Details -->
+<h1><%= @restaurant.name %></h1>
+
+<h4>Price Range:  <%= @restaurant.price %></h4>
+
+<h4>Cuisine:
+  <% if @restaurant.cuisine %>
+    <%= @restaurant.cuisine.cuisine_type %>
+  <% end %>
+</h4>
+
+<h4>Location:
+  <% if @restaurant.location %>
+    <%= @restaurant.location.neighborhood %>
+  <% end %>
+</h4>
+
+<hr>
+
+<!-- Update Restaurant Details -->
 <h1>Update <%= @restaurant.name %>'s Details</h1>
 
 <form action="/restaurants/<%=@restaurant.id%>" method="post">
@@ -19,6 +39,8 @@
 </form>
 <hr>
 
+
+<!-- Delete Restaurant -->
 <form action="/restaurants/<%=@restaurant.id%>" method="post">
   <input name="_method" type="hidden" value="delete">
   <button class="btn btn-default">Delete This Restaurant</button>
