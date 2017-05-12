@@ -97,8 +97,25 @@ post '/restaurants' do
   redirect '/restaurants'
 end
 
-get '/restaurant/:id' do
+get "/restaurants/:id" do
   restaurant_id = params['id'].to_i
   @restaurant = Restaurant.find(restaurant_id)
   erb :restaurant
+end
+
+patch "/restaurants/:id" do
+  restaurant_id = params['id'].to_i
+  restaurant = Restaurant.find(restaurant_id)
+  name = params.fetch('name')
+  price = params.fetch('price').to_i
+  if name == ""
+  else
+    restaurant.update({:name => name})
+  end
+  
+  if price == 0
+  else
+    restaurant.update({:price => price})
+  end
+  redirect "/restaurants/#{restaurant_id}"
 end
