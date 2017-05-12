@@ -10,14 +10,14 @@ require "pg"
 
 RSpec.configure do |config|
   config.after(:each) do
-    Restaurant.all().each() do |restaurant|
-      restaurant.destroy()
+    Restaurant.all.each do |restaurant|
+      restaurant.destroy
     end
-    Location.all().each() do |location|
-      location.destroy()
+    Location.all.each do |location|
+      location.destroy
     end
-    Cuisine.all().each() do |cuisine|
-      cuisine.destroy()
+    Cuisine.all.each do |cuisine|
+      cuisine.destroy
     end
   end
 end

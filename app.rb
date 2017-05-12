@@ -31,6 +31,10 @@ end
 delete'/cuisines/:id' do
   id = params.fetch('id').to_i
   @cuisine = Cuisine.find(id)
+  this_cuisine_restaurants = @cuisine.restaurants
+  this_cuisine_restaurants.each do |restaurant|
+    restaurant.update({cuisine_id: nil})
+  end
   @cuisine.delete
   redirect '/cuisines'
 end
@@ -61,6 +65,10 @@ end
 delete'/locations/:id' do
   id = params.fetch('id').to_i
   @location = Location.find(id)
+  this_location_restaurants = @location.restaurants
+  this_location_restaurants.each do |restaurant|
+    restaurant.update({location_id: nil})
+  end
   @location.delete
   redirect '/locations'
 end
@@ -71,7 +79,6 @@ end
 
 get '/restaurants' do
   @restaurants = Restaurant.all
-    binding.pry
   erb :restaurants
 end
 
