@@ -112,10 +112,17 @@ patch "/restaurants/:id" do
   else
     restaurant.update({:name => name})
   end
-  
+
   if price == 0
   else
     restaurant.update({:price => price})
   end
   redirect "/restaurants/#{restaurant_id}"
+end
+
+delete "/restaurants/:id" do
+  restaurant_id = params['id'].to_i
+  restaurant = Restaurant.find(restaurant_id)
+  restaurant.delete
+  redirect "/restaurants"
 end
